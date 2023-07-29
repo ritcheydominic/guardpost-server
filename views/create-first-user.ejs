@@ -1,0 +1,25 @@
+<main class="form-signup">
+    <h1 class="h3 mb-3 fw-normal">Thank you for choosing Guardpost!</h1>
+    <p class="mt-5 mb-3">Create your first user. Please note that this user will have administrator access.</p>
+    <%- include ('./partials/messages') %>
+    <form action="/setup/create-first-user" method="POST">
+        <div class="form-group">
+            <div class="mb-1 form-floating">
+                <input type="text" class="form-control" id="username" name="username" placeholder="john.doe" value="<%= typeof username != 'undefined' ? username : '' %>" data-bs-toggle="tooltip" data-bs-placement="top" title="Must have between 3 and 64 alphanumeric characters" maxlength="64" pattern="\w{3,64}" required>
+                <label for="username">Username</label>
+            </div>
+
+            <div class="mb-1 form-floating">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="" data-bs-toggle="tooltip" data-bs-placement="top" title="Must have between 8 and 64 characters (at least 1 uppercase, 1 lowercase and 1 number)" maxlength="64" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,64}" required>
+                <label for="password">Password</label>
+            </div>
+
+            <div class="mb-3 form-floating">
+                <input type="password" class="form-control" id="verifyPassword" name="verifyPassword" placeholder="Verify password" value="" maxlength="64" required>
+                <label for="verifyPassword">Verify password</label>
+            </div>
+        </div>
+
+        <button class="btn btn-lg btn-primary" type="submit">Create user</button>
+    </form>
+</main>
